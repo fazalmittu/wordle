@@ -93,9 +93,6 @@ function update() {
     //for present values
 
 
-
-    
-
     for (let i = 0; i < width; i++) {
         console.log("CORRECT", correctWordArr);
 
@@ -116,6 +113,7 @@ function update() {
     }
 
     for (let i = 0; i < width; i++) {
+        console.log("PRESENT", presentWordArr);
 
         var currTile = document.getElementById(row.toString() + "-" + i.toString());
         var currVal = "";
@@ -124,10 +122,15 @@ function update() {
             currVal = currTile.value;
         }
 
-        if (presentWordArr.includes(currTile.innerText)) {
-            currTile.classList.add("present");
-            presentWordArr[presentWordArr.indexOf(currTile.innerText)] = "";
+        if (currTile.classList.length == 1) {
+            if (presentWordArr.includes(currTile.innerText)) {
+                currTile.classList.add("present");
+                presentWordArr[presentWordArr.indexOf(currTile.innerText)] = "";
+                // presentWordArr[i] = "";
+    
+            }
         }
+        
     }
 
     for (let i = 0; i < width; i++) {
@@ -137,8 +140,11 @@ function update() {
         if (currTile) {
             currVal = currTile.value;
         }
+        // console.log(currTile.classList);
 
-        if (currTile.classList.length == 0) {
+        if (currTile.classList.length == 1) {
+            // console.log(currTile.classList);
+            // console.log(currTile.classList.length);
             currTile.classList.add("absent");
         }
     }
