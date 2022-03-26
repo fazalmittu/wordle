@@ -57,9 +57,11 @@ function initialize() {
 
             currTile.innerText = "";
         } else if (e.code == "Enter") {
-            update();
-            row += 1;
-            col = 0;
+            if (col == 5) {
+                update();
+                row += 1;
+                col = 0;
+            }
         }
 
         if (!gameOver && row == height) {
@@ -73,6 +75,18 @@ function initialize() {
 
 function update() {
     let correct = 0;
+    // let guessWord = "";
+    // [A, L, L, O, W]
+    let correctWordArr = [];
+    for (let i = 0; i < width; i++) {
+        correctWordArr.push(word[i]);
+    }
+
+    //have an array with all the letters; have a for loop that checks
+    //for correct letters first. if you get correct letters, update the 
+    //correctWordArr array. then check if words are inside of the array
+    //for present values
+
     for (let i = 0; i < width; i++) {
         var currTile = document.getElementById(row.toString() + "-" + i.toString());
         var currVal = "";
@@ -81,13 +95,42 @@ function update() {
             currVal = currTile.value;
         }
 
-        if (word[i] == currTile.innerText) {
-            currTile.classList.add("correct");
-            correct ++;
-        } else if (word.includes(currTile.innerText)) {
-            currTile.classList.add("present");
-        } else {
+        if (!correctWordArr.includes(currTile.innerText)) {
             currTile.classList.add("absent");
+        }
+    }
+
+    
+
+    for (let i = 0; i < width; i++) {
+        console.log("CORRECT", correctWordArr);
+
+        var currTile = document.getElementById(row.toString() + "-" + i.toString());
+        var currVal = "";
+
+        if (currTile) {
+            currVal = currTile.value;
+        }
+
+        if (currTile.innerText == correctWordArr[i]) {
+            correct++;
+            currTile.classList.add("correct");
+
+            correctWordArr[i] = "";
+        }
+    }
+
+    for (let i = 0; i < width; i++) {
+
+        var currTile = document.getElementById(row.toString() + "-" + i.toString());
+        var currVal = "";
+
+        if (currTile) {
+            currVal = currTile.value;
+        }
+
+        if (correctWordArr.includes(currTile.innerText)) {
+            currTile.classList.add("present");
         }
     }
 
