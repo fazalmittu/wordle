@@ -82,23 +82,17 @@ function update() {
         correctWordArr.push(word[i]);
     }
 
+    let presentWordArr = [];
+    for (let i = 0; i < width; i++) {
+        presentWordArr.push(word[i]);
+    }
+
     //have an array with all the letters; have a for loop that checks
     //for correct letters first. if you get correct letters, update the 
     //correctWordArr array. then check if words are inside of the array
     //for present values
 
-    for (let i = 0; i < width; i++) {
-        var currTile = document.getElementById(row.toString() + "-" + i.toString());
-        var currVal = "";
 
-        if (currTile) {
-            currVal = currTile.value;
-        }
-
-        if (!correctWordArr.includes(currTile.innerText)) {
-            currTile.classList.add("absent");
-        }
-    }
 
     
 
@@ -117,6 +111,7 @@ function update() {
             currTile.classList.add("correct");
 
             correctWordArr[i] = "";
+            presentWordArr[i] = "";
         }
     }
 
@@ -129,8 +124,22 @@ function update() {
             currVal = currTile.value;
         }
 
-        if (correctWordArr.includes(currTile.innerText)) {
+        if (presentWordArr.includes(currTile.innerText)) {
             currTile.classList.add("present");
+            presentWordArr[presentWordArr.indexOf(currTile.innerText)] = "";
+        }
+    }
+
+    for (let i = 0; i < width; i++) {
+        var currTile = document.getElementById(row.toString() + "-" + i.toString());
+        var currVal = "";
+
+        if (currTile) {
+            currVal = currTile.value;
+        }
+
+        if (currTile.classList.length == 0) {
+            currTile.classList.add("absent");
         }
     }
 
