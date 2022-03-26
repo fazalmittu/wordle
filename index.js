@@ -5,7 +5,7 @@ var row = 0; //what guess they at
 var col = 0; //position that they are at int he word
 
 var gameOver = false;
-var word = "ALLOW";
+var word = "SQUID";
 
 window.onload = function() {
     initialize();
