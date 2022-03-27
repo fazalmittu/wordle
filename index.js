@@ -204,7 +204,7 @@ function update() {
 
 
     for (let i = 0; i < width; i++) {
-        console.log("CORRECT", correctWordArr);
+        // console.log("CORRECT", correctWordArr);
 
         var currTile = document.getElementById(row.toString() + "-" + i.toString());
         var currVal = "";
@@ -228,7 +228,7 @@ function update() {
     }
 
     for (let i = 0; i < width; i++) {
-        console.log("PRESENT", presentWordArr);
+        // console.log("PRESENT", presentWordArr);
 
         var currTile = document.getElementById(row.toString() + "-" + i.toString());
         var currVal = "";
