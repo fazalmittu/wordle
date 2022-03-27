@@ -38,6 +38,61 @@ hr {
     align-items: center;
 }
 
+.keyboard-row {
+    width: 440px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.key-tile {
+    /* Box */
+    border: 1px solid lightgray;
+    width: 40px;
+    height: 40px;
+    margin: 1px;
+
+    /* Text */
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.key-tile:active {
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+}
+
+.enter-key-tile {
+    /* Box */
+    border: 1px solid lightgray;
+    width: 76px;
+    height: 40px;
+    margin: 1px;
+
+    /* Text */
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.enter-key-tile:active {
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+}
+
 .correct {
     background-color: #6AAA64;
     color: white;
