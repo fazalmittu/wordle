@@ -30,7 +30,7 @@ var guessList = ["aahed","aalii","aargh","aarti","abaca","abaci","abacs","abaft"
 guessList = guessList.concat(wordList);
 
 var word = wordList[Math.floor(Math.random() * wordList.length)].toUpperCase();
-console.log(word);
+// console.log(word);
 
 window.onload = function() {
     initialize();
@@ -66,6 +66,16 @@ function processInput(e) {
         }
 
         currTile.innerText = "";
+
+        var ans = document.getElementById("answer");
+        var ansVal = "";
+    
+        if (ans) {
+            ansVal = ans.value;
+        }
+    
+        ans.innerText = "";
+
     } else if (e.code == "Enter") {
         if (col == 5) {
             update();
