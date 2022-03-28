@@ -118,6 +118,17 @@ hr {
     display: inline-block;
     text-decoration: none;
     cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+.bro {
+    background-color: #6AAA64;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+
 }
 
 .btn:hover {opacity: 1.5}
