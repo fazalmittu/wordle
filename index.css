@@ -4,14 +4,14 @@ body {
 }
 
 hr {
-    width: 500px;
+    width: 75%;
     align-items: center;
 }
 
 #title {
     font-size: 36px;
     font-weight: bold;
-    letter-spacing: 2px;
+    /* letter-spacing: 2px; */
 }
 
 #board {
@@ -21,6 +21,7 @@ hr {
     margin-top: 3px;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .tile {
@@ -40,7 +41,7 @@ hr {
 }
 
 .keyboard-row {
-    width: 440px;
+    width: 400px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
