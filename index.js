@@ -291,10 +291,24 @@ function update() {
         gameOver = true;
         document.getElementById("answer").innerText = "Solved!";
 
-        let btn = document.getElementById("btn");
+        // let tile = document.createElement("span");
+        // tile.id = i.toString() + "-" + j.toString();
+        // tile.classList.add("tile");
+        // tile.innerText = "";
+        // document.getElementById("board").appendChild(tile);
+
         
-        btn.innerText = "Share";
+
+        let btn = document.getElementById("btn");
+        // btn.classList.add("btn");
+        
+        // btn.innerHTML = `<button class="btn" id="btn" onclick="copyResult()">Share</button>`;
+        btn.innerHTML = `
+                            <button class="bro" onclick="copyResult()" >Share</button>
+                        `;
         btn.style.display = "block";
+
+        // btn.addEventListener("click", copyResult);
 
     }
 
@@ -321,7 +335,7 @@ function update() {
     console.log(shareArr.length);
     console.log(outputStr)
 
-    copyResult();
+    // copyResult();
 
     row += 1;
     col = 0;
@@ -356,6 +370,12 @@ function copyResult() {
     // hey += hey;
 
     // console.log("hey: ", outputStr);
+
+    let beginning = "Wordzal " + row + "/" + 6 + "\n" + "\n";
+    console.log(beginning);
+
+    outputStr =  beginning + outputStr;
+    console.log(outputStr);
 
     navigator.clipboard.writeText(outputStr);
 
