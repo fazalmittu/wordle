@@ -289,7 +289,7 @@ function update() {
 
     if (correct == width) {
         gameOver = true;
-        document.getElementById("answer").innerText = "Solved!";
+        // document.getElementById("answer").innerText = "Solved!";
 
         // let tile = document.createElement("span");
         // tile.id = i.toString() + "-" + j.toString();
@@ -303,7 +303,7 @@ function update() {
         // btn.classList.add("btn");
         
         // btn.innerHTML = `<button class="btn" id="btn" onclick="copyResult()">Share</button>`;
-        btn.innerHTML = `
+        btn.innerHTML = `   
                             <button class="bro" onclick="copyResult()" >Share</button>
                         `;
         btn.style.display = "block";
