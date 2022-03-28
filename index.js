@@ -30,7 +30,14 @@ var guessList = ["aahed","aalii","aargh","aarti","abaca","abaci","abacs","abaft"
 guessList = guessList.concat(wordList);
 
 var word = wordList[Math.floor(Math.random() * wordList.length)].toUpperCase();
-// console.log(word);
+console.log(word);
+
+let correctE = "🟩";
+let presentE = "🟨";
+let absentE = "⬜";
+
+let shareArr = [];
+let outputStr = "";
 
 window.onload = function() {
     initialize();
@@ -79,7 +86,6 @@ function processInput(e) {
     } else if (e.code == "Enter") {
         if (col == 5) {
             update();
-
         }
     }
 
@@ -98,6 +104,9 @@ function initialize() {
 
     //creates initial "board" for tiles
     //separate id created for each tile based on indices in array (5x6)
+
+    let btn = document.getElementById("btn");
+    btn.style.display = "none";
 
     for (let i = 0; i < height; i++) {
         for (let j = 0; j < width; j++) {
@@ -246,7 +255,6 @@ function update() {
                 if (!currKb.classList.contains("correct")) {
                     currKb.classList.add("present");
                 }
-                
 
                 presentWordArr[presentWordArr.indexOf(currTile.innerText)] = "";
                 // presentWordArr[i] = "";
@@ -282,8 +290,73 @@ function update() {
     if (correct == width) {
         gameOver = true;
         document.getElementById("answer").innerText = "Solved!";
+
+        let btn = document.getElementById("btn");
+        
+        btn.innerText = "Share";
+        btn.style.display = "block";
+
     }
+
+    let shareAdd = [];
+
+    for (let i = 0; i < width; i++) {
+        var currTile = document.getElementById(row.toString() + "-" + i.toString());
+
+        if (currTile.classList.contains("correct")) {
+            shareAdd.push(correctE);
+            outputStr += String.fromCodePoint("0x1F7E9");
+        } else if (currTile.classList.contains("present")) {
+            shareAdd.push(presentE);
+            outputStr += String.fromCodePoint("0x1F7E8");
+        } else {
+            shareAdd.push(absentE);
+            outputStr += String.fromCodePoint("0x2B1C");
+        }
+    }
+    
+    outputStr += "\n";
+    shareArr[row] = shareAdd;
+    console.log(shareArr);
+    console.log(shareArr.length);
+    console.log(outputStr)
+
+    copyResult();
 
     row += 1;
     col = 0;
+}
+
+function copyResult() {
+    /* Get the text field */
+
+    // console.log(shareArr);
+
+    // for (let i = 0; i < shareArr.length; i++) {
+    //     for (let j = 0; j < shareArr[0].length; j++) {
+    //         //CURRENTLY MAKING THE THING THAT WILL BE COPIED IN SHARE
+    //         console.log("HEY");
+    //         console.log(shareArr[i][j]);
+    //         outputStr += shareArr[i][j];
+    //     }
+    //     outputStr += "\n";
+    // }
+    // console.log(outputStr);
+
+    // var copyText = document.getElementById("myInput");
+  
+    /* Select the text field */
+    // copyText.select();
+    // copyText.setSelectionRange(0, 99999); /* For mobile devices */
+  
+    /* Copy the text inside the text field */
+    // let hey = String.fromCodePoint(0x1F7E9, 0x1F7E9);
+    // hey += String.fromCodePoint("0x1F7E9");
+    // hey += "\n";
+    // hey += hey;
+
+    // console.log("hey: ", outputStr);
+
+    navigator.clipboard.writeText(outputStr);
+
 }
