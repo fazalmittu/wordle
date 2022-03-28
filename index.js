@@ -372,11 +372,11 @@ function copyResult() {
     // console.log("hey: ", outputStr);
 
     let beginning = "Wordzal " + row + "/" + 6 + "\n" + "\n";
-    console.log(beginning);
+    // console.log(beginning);
 
-    outputStr =  beginning + outputStr;
-    console.log(outputStr);
+    // outputStr =  beginning + outputStr;
+    // console.log(outputStr);
 
-    navigator.clipboard.writeText(outputStr);
+    navigator.clipboard.writeText(beginning + outputStr);
 
 }
