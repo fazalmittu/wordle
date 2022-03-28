@@ -4,7 +4,7 @@ body {
 }
 
 hr {
-    width: 45%;
+    width: 65%;
     align-items: center;
 }
 
@@ -19,9 +19,17 @@ hr {
     height: 420px;
     margin: 0 auto;
     margin-top: 3px;
+    margin-bottom: 15px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+}
+
+#answer {
+    font-size: 36px;
+    font-weight: bold;
+    /* margin: 25px; */
+
 }
 
 .tile {
