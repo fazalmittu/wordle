@@ -5,6 +5,7 @@ body {
 
 hr {
     width: 500px;
+    align-items: center;
 }
 
 #title {
@@ -50,13 +51,13 @@ hr {
 .key-tile {
     /* Box */
     border: 1px solid lightgray;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     margin: 1px;
 
     /* Text */
     color: black;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -64,22 +65,22 @@ hr {
 }
 
 .key-tile:active {
-    transform: scale(0.98);
+    transform: scale(0.95);
     /* Scaling button to 0.98 to its original size */
-    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    /* box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); */
     /* Lowering the shadow */
 }
 
 .enter-key-tile {
     /* Box */
     border: 1px solid lightgray;
-    width: 76px;
-    height: 40px;
+    width: 70px;
+    height: 36px;
     margin: 1px;
 
     /* Text */
     color: black;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -89,9 +90,37 @@ hr {
 .enter-key-tile:active {
     transform: scale(0.98);
     /* Scaling button to 0.98 to its original size */
-    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    /* box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); */
     /* Lowering the shadow */
 }
+
+.btn {
+    /* position: absolute;
+    top: 50%;
+    padding: 16px 32px;
+    left: 50%;
+    transform translate(-50, -50); */
+
+    margin: auto;
+    width: 10%;
+    /* border: 3px solid green; */
+    padding: 10px;
+
+    background-color: #6AAA64;
+    border: none;
+    color: white;
+    /* padding: 16px 32px; */
+    text-align: center;
+    font-size: 16px;
+    /* margin: 4px 2px; */
+    opacity: 1;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn:hover {opacity: 1.5}
 
 .correct {
     background-color: #6AAA64;
